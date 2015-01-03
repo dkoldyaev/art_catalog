@@ -11,9 +11,9 @@ class Artist(ArtModel) :
     surname =       models.CharField(blank=True, null=True, max_length=255)
     patronymic =    models.CharField(blank=True, null=True, max_length=255)
 
-    portrait =      models.ImageField(blank=True, null=True, upload_to='artist/artist/portrait')
-
     slug =          models.SlugField(blank=True, null=True, max_length=255)
+
+    portrait =      models.ImageField(blank=True, null=True, upload_to='artist/artist/portrait')
 
     years_from =    models.IntegerField(blank=True, null=True)
     years_to =      models.IntegerField(blank=True, null=True)
