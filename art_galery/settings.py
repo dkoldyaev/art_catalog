@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'art_galery',
     'artist',
     'picture',
-    'country'
+    'country',
+    'museum',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +56,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'art_galery.urls'
 
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = 'art_galery.wsgi.application'
 
 
 # Database
@@ -85,3 +86,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'www', 'media')
+MEDIA_URL = '/media/'

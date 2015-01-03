@@ -1,5 +1,7 @@
 .idea
 .git
 
-*.sqlite3
+*.sqlite3*
 *.pyc
+
+www/media
