@@ -11,6 +11,8 @@ class Artist(ArtModel) :
     surname =       models.CharField(blank=True, null=True, max_length=255)
     patronymic =    models.CharField(blank=True, null=True, max_length=255)
 
+    origin_name =   models.CharField(blank=True, null=True, max_length=255)
+
     slug =          models.SlugField(blank=True, null=True, max_length=255)
 
     portrait =      models.ImageField(blank=True, null=True, upload_to='artist/artist/portrait')
@@ -19,6 +21,12 @@ class Artist(ArtModel) :
     years_to =      models.IntegerField(blank=True, null=True)
 
     country =       models.ManyToManyField('country.Country', related_name='artist_set', blank=True, null=True)
+    nationality =   models.ManyToManyField('country.Nationality', blank=True, null=True)
+
+    style =         models.ManyToManyField('picture.Style', blank=True, null=True)
+    school =        models.ManyToManyField('artist.School', blank=True, null=True)
+
+    link_wiki =     models.URLField(blank=True, null=True)
 
     class Meta:
 
@@ -39,3 +47,8 @@ class Artist(ArtModel) :
             self.slug = transliterate.slugify(self.__str__(show_date=False))
 
         super(Artist, self).save(*args, **kwargs)
+
+class School(ArtModel):
+
+    name =          models.CharField(blank=True, null=True, max_length=255)
+    slug =          models.SlugField(blank=True, null=True, max_length=255)

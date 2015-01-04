@@ -37,11 +37,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'modeltranslation',
+
     'art_galery',
     'artist',
     'picture',
     'country',
     'museum',
+    'tag',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,7 +75,17 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('en',  gettext('English')),
+    ('es',  gettext('Español')),
+    ('pt',  gettext('Português')),
+    ('ru',  gettext('Русский')),
+    ('uk',  gettext('Українська')),
+)
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 
 TIME_ZONE = 'UTC'
 
